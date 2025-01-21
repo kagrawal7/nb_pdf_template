@@ -59,7 +59,7 @@ Adding:
 ```python
 c.LatexExporter.template_name = 'latex_authentic'
 ```
-to the ```jupyter_nbconvert_config.py``` file will let you drop the "--template latex_authentic", and to the ```jupyter_notebook_config.py``` or ```jupyter_lab_config.py``` files will let you use "download as pdf" from within the Jupyter notebook/lab with the template.
+to the ```jupyter_nbconvert_config.py``` file will let you drop the "--template latex_authentic", and to the ```jupyter_notebook_config.py``` or ```jupyter_lab_config.py``` files will let you use "download as pdf" from within Jupyter Notebook/Lab with the template.
 
 ## Build
 
