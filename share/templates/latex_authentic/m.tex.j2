@@ -16,7 +16,9 @@
     }
 ((* endblock style_prompt *))
 
-((* set charlim = 94 *))
+((*- if charlim is not defined -*))
+    ((* set charlim = 94 *))
+((*- endif -*))
 
 ((* macro draw_cell(text, cell, prompt, prompt_color, extra_space) -*))
 ((*- if prompt == 'In' -*))

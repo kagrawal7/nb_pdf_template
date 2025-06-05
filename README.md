@@ -53,13 +53,20 @@ From the command line:
 jupyter nbconvert --to pdf filename.ipynb --template latex_authentic
 ```
 
-You can add ```--template-file m.tex.j2``` to change the index file of the template to the one with the prompts above the cells instead of to the left of the cells.
-
-Adding:
+Config file:
 ```python
 c.LatexExporter.template_name = 'latex_authentic'
 ```
-to the ```jupyter_nbconvert_config.py``` file will let you drop the "--template latex_authentic", and to the ```jupyter_notebook_config.py``` or ```jupyter_lab_config.py``` files will let you use "download as pdf" from within Jupyter Notebook/Lab with the template.
+The ```jupyter_nbconvert_config.py``` file will let you drop the "--template latex_authentic" in the cli, and to the ```jupyter_notebook_config.py``` or ```jupyter_lab_config.py``` files will let you use "download as pdf" from within Jupyter Notebook/Lab with the template.
+
+You can also use the ```--template-file``` flag or ```c.LatexExporter.template_file=``` variable to change the index file with the following options:
+
+| Option | Use | Text wrapping length | 
+|----------|----------|---------------|
+| index  | This is the default. | 89 | 
+| index_A4  | A4 paper version of the default.  | 85 |
+| m  | Prompts above the cells instead of to the left. | 94 |
+| m_A4  | A4 paper version of the above. | 90 |
 
 ## Build
 

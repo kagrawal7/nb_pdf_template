@@ -71,4 +71,6 @@
 
 ((* block maketitle *))((* endblock maketitle *))
 
-((* set charlim = 89 *))
+((*- if charlim is not defined -*))
+    ((* set charlim = 89 *))
+((*- endif -*))
