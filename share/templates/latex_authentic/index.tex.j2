@@ -63,6 +63,10 @@
     % Header Adjustments
     \renewcommand{\paragraph}{\textbf}
     \renewcommand{\subparagraph}[1]{\textit{\textbf{#1}}}
+
+    % page width horizontal lines (added by kushagra, oct 7, 2025)
+    \let\oldrule=\rule
+    \renewcommand{\rule}[1]{\oldrule{\linewidth}}
 ((*- endblock definitions -*))
 
 ((*- block margins -*))
