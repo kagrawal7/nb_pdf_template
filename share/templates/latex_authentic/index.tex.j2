@@ -67,14 +67,40 @@
     % page width horizontal lines (added by kushagra, oct 7, 2025)
     \let\oldrule=\rule
     \renewcommand{\rule}[1]{\oldrule{\linewidth}}
+
+    % --- kushagra: Oct 7, 2025, Paragraph / list spacing fix (insert near end of block definitions) ---
+    \usepackage{enumitem}
+    \AtBeginDocument{%
+      % global paragraph gap
+      \setlength{\parskip}{0.5\baselineskip}%
+      % control spacing inside lists (levels 1 and 2 shown; adjust as needed)
+      \setlist[itemize,1]{itemsep=0.35\baselineskip,parsep=0.5\baselineskip,topsep=0.25\baselineskip}
+      \setlist[itemize,2]{itemsep=0.25\baselineskip,parsep=0.4\baselineskip,topsep=0.15\baselineskip}
+      % ensure tightlist is overridden (pandoc / nbconvert use this)
+      \renewcommand{\tightlist}{%
+        \setlength{\itemsep}{0.35\baselineskip}%
+        \setlength{\parskip}{0.5\baselineskip}%
+      }%
+    }
+    % --------------------------------------------------------------
+
+
 ((*- endblock definitions -*))
 
 ((*- block margins -*))
     \geometry{verbose,tmargin=.5in,bmargin=.7in,lmargin=.7in,rmargin=.7in}
 ((*- endblock margins -*))
 
-((* block maketitle *))((* endblock maketitle *))
+((* block maketitle *))
+   % \maketitle
+    \begin{center}
+      \LARGE{\textbf{((( nb.metadata.latex_metadata.title | escape_latex )))}}\\[1cm]
+      \large{((( nb.metadata.latex_metadata.author | escape_latex )))}\\[0.5cm]
+      \small{((( nb.metadata.latex_metadata.date | escape_latex )))}
+    \end{center}
+((* endblock maketitle *))
 
 ((*- if charlim is not defined -*))
     ((* set charlim = 89 *))
 ((*- endif -*))
+
