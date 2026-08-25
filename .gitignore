@@ -100,3 +100,5 @@ example/_minted-test
 
 # image files
 *.afphoto
+*.DS_Store
+
